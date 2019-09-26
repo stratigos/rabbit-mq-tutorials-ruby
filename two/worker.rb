@@ -6,7 +6,7 @@ connection = Bunny.new(automatically_recover: false)
 connection.start
 
 channel = connection.create_channel
-queue = channel.queue("hello")
+queue = channel.queue("helloTwo", durable: true)
 
 begin
   puts " [*] Waiting for messages. To exit press CTRL+C"
@@ -14,6 +14,7 @@ begin
     puts " [x] Received #{body}"
     sleep(body.count(".").to_i)
     puts " [x] Done"
+    channel.ack(delivery_info.delivery_tag)
   end
 rescue Interrupt => _
   connection.close

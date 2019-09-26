@@ -9,7 +9,7 @@ connection.start
 
 channel = connection.create_channel
 
-queue = channel.queue("hello")
+queue = channel.queue("helloTwo", durable: true)
 
 queue.publish(message, persistent: true)
 
