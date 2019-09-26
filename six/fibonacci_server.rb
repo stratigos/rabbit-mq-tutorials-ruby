@@ -9,12 +9,14 @@ class FibonacciServer
   end
 
   def start(queue_name)
+    puts " [👍] Starting server!"
     @queue = channel.queue(queue_name)
     @exchange = channel.default_exchange
     subscribe_to_queue
   end
 
   def stop
+    puts " [🛑] Stopping server..."
     channel.close
     connection.close
   end
