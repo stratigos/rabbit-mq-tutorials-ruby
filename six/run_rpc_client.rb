@@ -6,7 +6,7 @@ bunny = Bunny.new(automatically_recover: false)
 
 client = FibonacciClient.new(
   server_queue_name: "rpc_queue",
-  connection: bunny
+  connection_client: bunny
 )
 
 n = (ARGV[0] || 30).to_i

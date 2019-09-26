@@ -33,6 +33,8 @@ class FibonacciServer
     queue.subscribe do |_delivery_info, properties, body|
       result = fibonacci(body.to_i)
 
+      puts "   [👩‍🏫] Fib'd: #{result} "
+
       exchange.publish(
         result.to_s,
         routing_key: properties.reply_to,
