@@ -3,7 +3,7 @@ require "bunny"
 
 class FibonacciServer
   def initialize(connection_client)
-    @connection = connection_client.new
+    @connection = connection_client
     @connection.start
     @channel = @connection.create_channel
   end
