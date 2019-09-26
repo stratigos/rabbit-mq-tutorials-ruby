@@ -2,7 +2,7 @@
 
 require "bunny"
 
-message = ARGV.empty? ? 'Hello World!' : ARGV.join(" ")
+message = ARGV.empty? ? "Hello World!" : ARGV.join(" ")
 
 connection = Bunny.new(automatically_recover: false)
 connection.start
