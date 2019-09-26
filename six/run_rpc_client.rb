@@ -9,9 +9,11 @@ client = FibonacciClient.new(
   connection: bunny
 )
 
-puts " [📭] Requesting fib(30)"
+n = (ARGV[0] || 30).to_i
 
-response = client.call(30)
+puts " [📭] Requesting fib(#{n})"
+
+response = client.call(n)
 
 puts " [📫] Got back: #{response}"
 
