@@ -30,8 +30,8 @@ class FibonacciServer
   attr_reader :channel, :exchange, :queue, :connection
 
   def subscribe_to_queue
-    queue.subscribe do |_delivery_info, properties, payload|
-      result = fibonacci(payload.to_i)
+    queue.subscribe do |_delivery_info, properties, body|
+      result = fibonacci(body.to_i)
 
       exchange.publish(
         result.to_s,
