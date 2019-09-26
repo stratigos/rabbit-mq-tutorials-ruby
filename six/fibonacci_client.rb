@@ -3,7 +3,12 @@ require "bunny"
 require "thread"
 
 class FibonacciClient
-  attr_accessor :call_id, :condition, :lock, :response
+  attr_accessor(
+    :call_id,
+    :condition,
+    :lock,
+    :response
+  )
 
   def initialize(
     server_queue_name:,
@@ -74,7 +79,11 @@ class FibonacciClient
     ref.lock.synchronize { ref.condition.signal }
   end
 
-  attr_accessor :connection,
-    :channel, :server_queue_name, :reply_queue, :exchange
-
+  attr_accessor(
+    :channel,
+    :connection,
+    :exchange,
+    :reply_queue,
+    :server_queue_name
+  )
 end
