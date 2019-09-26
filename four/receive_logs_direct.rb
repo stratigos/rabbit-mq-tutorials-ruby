@@ -19,7 +19,7 @@ end
 puts " [🛌] Waiting for logs. 🚪💨 To exit press CTRL+C"
 
 begin
-  queue.subscribe(block: true) do |delivery_info, _properties, _body|
+  queue.subscribe(block: true) do |delivery_info, _properties, body|
     puts " [📬] #{delivery_info.routing_key}:#{body}"
   end
 rescue Interrupt => _
