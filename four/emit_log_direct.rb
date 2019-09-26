@@ -11,6 +11,7 @@ message = ARGV.empty? ? "Hello World!!!" : ARGV.join(" ")
 
 exchange.publish(message, routing_key: severity)
 
-puts " [x] 📭 Sent message: '#{message}'"
+puts " [📭] Sent message: '#{message}'"
+puts " [👋] \n\n"
 
 connection.close
